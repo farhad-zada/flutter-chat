@@ -1,6 +1,8 @@
+import 'package:chat/constants.dart';
 import 'package:flutter/material.dart';
 
 class LoginScreen extends StatefulWidget {
+  static const String id = 'l';
   const LoginScreen({super.key});
   @override
   State<LoginScreen> createState() => _LoginScreenState();
@@ -90,6 +92,7 @@ class _LoginScreenState extends State<LoginScreen> {
                   height: 42.0,
                   child: const Text(
                     'Log In',
+                    style: kButtonTextStyle,
                   ),
                 ),
               ),

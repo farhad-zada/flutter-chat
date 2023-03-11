@@ -1,6 +1,8 @@
+import 'package:chat/constants.dart';
 import 'package:flutter/material.dart';
 
 class RegistrationScreen extends StatefulWidget {
+  static const String id = 'r';
   const RegistrationScreen({super.key});
   @override
   State<RegistrationScreen> createState() => _RegistrationScreenState();
@@ -86,7 +88,7 @@ class _RegistrationScreenState extends State<RegistrationScreen> {
                   height: 42.0,
                   child: const Text(
                     'Register',
-                    style: TextStyle(color: Colors.white),
+                    style: kButtonTextStyle,
                   ),
                 ),
               ),

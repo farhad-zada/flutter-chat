@@ -4,7 +4,7 @@ import 'package:chat/screens/login_screen.dart';
 import 'package:chat/screens/registration_screen.dart';
 import 'package:chat/screens/chat_screen.dart';
 
-void main() => runApp(FlashChat());
+void main() => runApp(const FlashChat());
 
 class FlashChat extends StatelessWidget {
   const FlashChat({super.key});
@@ -16,7 +16,13 @@ class FlashChat extends StatelessWidget {
           bodyLarge: TextStyle(color: Colors.black54),
         ),
       ),
-      home: const WelcomeScreen(),
+      initialRoute: WelcomeScreen.id,
+      routes: {
+        WelcomeScreen.id: (context) => const WelcomeScreen(),
+        LoginScreen.id: (context) => const LoginScreen(),
+        RegistrationScreen.id: (context) => const RegistrationScreen(),
+        ChatScreen.id: (context) => const ChatScreen(),
+      },
     );
   }
 }
