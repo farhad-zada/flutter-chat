@@ -19,3 +19,13 @@ const kMessageContainerDecoration = BoxDecoration(
 );
 
 const TextStyle kButtonTextStyle = TextStyle(fontSize: 17.0);
+
+const kColorizeColors = [
+  Colors.purple,
+  Colors.blue,
+  Colors.yellow,
+  Colors.red,
+];
+
+const kColorizeTextStyle =
+    TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);

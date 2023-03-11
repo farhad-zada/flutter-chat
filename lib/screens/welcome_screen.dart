@@ -1,7 +1,8 @@
 import 'package:chat/constants.dart';
-import 'package:chat/screens/login_screen.dart';
-import 'package:chat/screens/registration_screen.dart';
+import 'screens.dart';
+import 'package:chat/widgets/widgets.dart';
 import 'package:flutter/material.dart';
+import 'package:animated_text_kit/animated_text_kit.dart';
 
 class WelcomeScreen extends StatefulWidget {
   static const String id = '/';
@@ -11,11 +12,39 @@ class WelcomeScreen extends StatefulWidget {
   State<WelcomeScreen> createState() => _WelcomeScreenState();
 }
 
-class _WelcomeScreenState extends State<WelcomeScreen> {
+class _WelcomeScreenState extends State<WelcomeScreen>
+    with SingleTickerProviderStateMixin {
+  AnimationController? animationController;
+  Animation? animation;
+
+  @override
+  void initState() {
+    super.initState();
+    animationController = AnimationController(
+      duration: const Duration(seconds: 1),
+      vsync: this,
+    );
+
+    animationController!.forward();
+
+    animation = ColorTween(begin: Colors.teal, end: Colors.white)
+        .animate(animationController!);
+
+    animationController!.addListener(() {
+      setState(() {});
+    });
+  }
+
+  @override
+  void dispose() {
+    animationController!.dispose();
+    super.dispose();
+  }
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      backgroundColor: Colors.white,
+      backgroundColor: animation!.value,
       body: Padding(
         padding: const EdgeInsets.symmetric(horizontal: 24.0),
         child: Column(
@@ -24,61 +53,41 @@ class _WelcomeScreenState extends State<WelcomeScreen> {
           children: <Widget>[
             Row(
               children: <Widget>[
-                SizedBox(
-                  height: 60.0,
-                  child: Image.asset('images/logo.png'),
+                Hero(
+                  tag: 'lightening',
+                  child: SizedBox(
+                    height: animationController!.value * 60,
+                    child: Image.asset('images/logo.png'),
+                  ),
                 ),
-                const Text(
-                  'Flash Chat',
-                  style: TextStyle(
-                      fontSize: 48.0,
-                      fontWeight: FontWeight.w900,
-                      color: Colors.black54),
+                AnimatedTextKit(
+                  animatedTexts: [
+                    ColorizeAnimatedText(
+                      'Flash Chat',
+                      textStyle: kColorizeTextStyle,
+                      colors: kColorizeColors,
+                    ),
+                  ],
+                  isRepeatingAnimation: false,
+                  onTap: () {},
                 ),
               ],
             ),
             const SizedBox(
               height: 48.0,
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                elevation: 5.0,
-                color: Colors.lightBlueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to login screen.
-                    Navigator.pushNamed(context, LoginScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Log In',
-                    style: kButtonTextStyle,
-                  ),
-                ),
-              ),
+            CustomButton(
+              animationController: animationController,
+              tittle: 'Log In',
+              color: Colors.lightBlueAccent,
+              onPressed: () => Navigator.pushNamed(context, LoginScreen.id),
             ),
-            Padding(
-              padding: const EdgeInsets.symmetric(vertical: 16.0),
-              child: Material(
-                color: Colors.blueAccent,
-                borderRadius: BorderRadius.circular(30.0),
-                elevation: 5.0,
-                child: MaterialButton(
-                  onPressed: () {
-                    //Go to registration screen.
-                    Navigator.pushNamed(context, RegistrationScreen.id);
-                  },
-                  minWidth: 200.0,
-                  height: 42.0,
-                  child: const Text(
-                    'Register',
-                    style: kButtonTextStyle,
-                  ),
-                ),
-              ),
+            CustomButton(
+              animationController: animationController,
+              tittle: 'Register',
+              color: Colors.blueAccent,
+              onPressed: () =>
+                  Navigator.pushNamed(context, RegistrationScreen.id),
             ),
           ],
         ),
