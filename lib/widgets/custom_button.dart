@@ -4,13 +4,11 @@ import '../constants.dart';
 class CustomButton extends StatelessWidget {
   const CustomButton({
     super.key,
-    required this.animationController,
     required this.tittle,
     required this.onPressed,
     this.color,
   });
 
-  final AnimationController? animationController;
   final String tittle;
   final Color? color;
   final Function() onPressed;
@@ -18,8 +16,7 @@ class CustomButton extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: EdgeInsets.symmetric(
-        horizontal: 100 - animationController!.value * 100,
+      padding: const EdgeInsets.symmetric(
         vertical: 16.0,
       ),
       child: Material(

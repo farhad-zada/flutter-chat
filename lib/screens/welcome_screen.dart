@@ -77,13 +77,11 @@ class _WelcomeScreenState extends State<WelcomeScreen>
               height: 48.0,
             ),
             CustomButton(
-              animationController: animationController,
               tittle: 'Log In',
               color: Colors.lightBlueAccent,
               onPressed: () => Navigator.pushNamed(context, LoginScreen.id),
             ),
             CustomButton(
-              animationController: animationController,
               tittle: 'Register',
               color: Colors.blueAccent,
               onPressed: () =>

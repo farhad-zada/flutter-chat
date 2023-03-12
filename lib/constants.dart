@@ -20,6 +20,8 @@ const kMessageContainerDecoration = BoxDecoration(
 
 const TextStyle kButtonTextStyle = TextStyle(fontSize: 17.0);
 
+const TextStyle kHintTextStyle = TextStyle(color: Colors.black54);
+
 const kColorizeColors = [
   Colors.purple,
   Colors.blue,
@@ -29,3 +31,20 @@ const kColorizeColors = [
 
 const kColorizeTextStyle =
     TextStyle(fontSize: 50.0, fontWeight: FontWeight.w900);
+
+const InputDecoration kTextFieldDecoration = InputDecoration(
+  hintText: 'Enter your password',
+  hintStyle: kHintTextStyle,
+  contentPadding: EdgeInsets.symmetric(vertical: 10.0, horizontal: 20.0),
+  border: OutlineInputBorder(
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  enabledBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.blueAccent, width: 1.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+  focusedBorder: OutlineInputBorder(
+    borderSide: BorderSide(color: Colors.blueAccent, width: 2.0),
+    borderRadius: BorderRadius.all(Radius.circular(32.0)),
+  ),
+);
