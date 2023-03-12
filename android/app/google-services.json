@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "1016084826310",
+    "project_id": "chat-ff3e2",
+    "storage_bucket": "chat-ff3e2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1016084826310:android:11606256619630fba56fc7",
+        "android_client_info": {
+          "package_name": "com.fredo.chat"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1016084826310-nf7svcdmbb3u4ngonu23sbjuk13o3u1b.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAZivCrjVSu8ELiy3PSvODOJsGfFV7WcsQ"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1016084826310-nf7svcdmbb3u4ngonu23sbjuk13o3u1b.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
