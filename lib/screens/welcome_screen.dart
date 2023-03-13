@@ -79,11 +79,13 @@ class _WelcomeScreenState extends State<WelcomeScreen>
             CustomButton(
               tittle: 'Log In',
               color: Colors.lightBlueAccent,
+              animationController: animationController,
               onPressed: () => Navigator.pushNamed(context, LoginScreen.id),
             ),
             CustomButton(
               tittle: 'Register',
               color: Colors.blueAccent,
+              animationController: animationController,
               onPressed: () =>
                   Navigator.pushNamed(context, RegistrationScreen.id),
             ),

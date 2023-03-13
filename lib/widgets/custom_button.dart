@@ -7,16 +7,21 @@ class CustomButton extends StatelessWidget {
     required this.tittle,
     required this.onPressed,
     this.color,
+    this.animationController,
   });
 
   final String tittle;
   final Color? color;
   final Function() onPressed;
+  final AnimationController? animationController;
 
   @override
   Widget build(BuildContext context) {
     return Padding(
-      padding: const EdgeInsets.symmetric(
+      padding: EdgeInsets.symmetric(
+        horizontal: animationController != null
+            ? 100 - animationController!.value * 100
+            : 0.0,
         vertical: 16.0,
       ),
       child: Material(
