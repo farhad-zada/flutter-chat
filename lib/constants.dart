@@ -16,6 +16,7 @@ const kMessageContainerDecoration = BoxDecoration(
   border: Border(
     top: BorderSide(color: Colors.lightBlueAccent, width: 2.0),
   ),
+  // borderRadius: BorderRadius.all(Radius.circular(10.0))
 );
 
 const TextStyle kButtonTextStyle = TextStyle(fontSize: 17.0);
